@@ -1,6 +1,8 @@
 import requests
 
 hitokoto=requests.get("https://v1.hitokoto.cn?c=i").json()["hitokoto"]
+author=requests.get("https://v1.hitokoto.cn?c=i").json()["from_who"]
+title=requests.get("https://v1.hitokoto.cn?c=i").json()["from"]
 
 
 
@@ -32,4 +34,4 @@ def sent_email(subject, message):
     except smtplib.SMTPException as e:
         print("Error: 无法发送邮件", e)
 
-sent_email("" ,hitokoto)
+sent_email(hitokoto,f'来自{title}的{author}')
