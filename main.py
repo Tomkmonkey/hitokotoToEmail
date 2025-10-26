@@ -34,4 +34,4 @@ def sent_email(subject, message):
     except smtplib.SMTPException as e:
         print("Error: 无法发送邮件", e)
 
-sent_email(hitokoto,f'来自{title}的{author}')
+sent_email(hitokoto,f'来自{author}的{title}')
